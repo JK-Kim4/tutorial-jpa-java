@@ -1,0 +1,58 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.2'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'java'
+}
+
+group = 'com.template'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //spring web & devtools
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    //lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //logging - log4h2
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+
+    //database
+    runtimeOnly 'com.h2database:h2'
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //EhCache
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+    //mustache
+    implementation 'org.springframework.boot:spring-boot-starter-mustache'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+//logging - logback exclude
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
