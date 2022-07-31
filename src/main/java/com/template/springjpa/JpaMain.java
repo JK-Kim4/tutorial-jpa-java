@@ -60,4 +60,18 @@ public class JpaMain {
         //삭제
         em.remove(member);
     }
+
+    public void testDetached(EntityManager em){
+        Member member = new Member();
+        member.setId("memberA");
+        member.setUsername("memberA");
+
+        em.persist(member);
+
+        em.detach(member);
+
+
+
+
+    }
 }
