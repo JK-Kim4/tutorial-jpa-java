@@ -7,7 +7,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "MEMBER")
+@Table(name = "MEMBER",
+        uniqueConstraints = {
+        @UniqueConstraint(
+            name = "NAME_AGE_UNIQE",
+            columnNames = {"NAME", "AGE"}
+                )
+            }
+        )
 @Getter
 @Setter
 public class Member {
@@ -15,7 +22,7 @@ public class Member {
     @Column(name ="ID")
     private String id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 10)
     private String username;
 
     private Integer age;
@@ -31,8 +38,11 @@ public class Member {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
 
+    @Transient // @Transient 선언이 되어있는 필드는 데이터베이스에 반영하지않는다
+    private String temp;
+
     @Lob
-    //길이 제한이 없는 필드 (CLOB, BLOB) 필드 선언시 @Lob 선언
+    //길이 제한이 없는 필드 (CLOB, BLOB) 필드 선언시 @Lob 선가
     private String description;
 
 }
