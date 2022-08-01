@@ -22,7 +22,9 @@ public class Member {
     private String name;
 
     @ManyToOne //Team 과 Member 는 1:N 관계
-    @JoinColumn(name = "TEAM_ID") //Member.team field를 Team.TEAM_ID와 맵핑
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
+    //Member.team field를 Team.TEAM_ID와 맵핑
+    //Team 테이블의 값은 Team객체에서만 insert, update 되도록 설정
     private Team team;
 
     private String city;
