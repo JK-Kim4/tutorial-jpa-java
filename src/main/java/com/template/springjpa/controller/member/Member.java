@@ -1,5 +1,6 @@
 package com.template.springjpa.controller.member;
 
+import com.template.springjpa.controller.team.Team;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +21,20 @@ public class Member {
     @Column
     private String name;
 
+    @ManyToOne //Team 과 Member 는 1:N 관계
+    @JoinColumn(name = "TEAM_ID") //Member.team field를 Team.TEAM_ID와 맵핑
+    private Team team;
+
     private String city;
     private String street;
     private String zipcode;
+
+    public void setTeam(Team team){
+        this.team = team;
+
+        //무한 루프 빠지지 않도록 체크함
+        if(!team.getMembers().contains(this)){
+            team.getMembers().add(this);
+        }
+    }
 }
