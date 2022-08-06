@@ -1,10 +1,14 @@
 package com.template.springjpa.controller.member;
 
+import com.template.springjpa.controller.order.Order;
 import com.template.springjpa.controller.team.Team;
 import lombok.Getter;
 import lombok.Setter;
+import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,6 +34,9 @@ public class Member {
     private String city;
     private String street;
     private String zipcode;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<Order>();
 
     public void setTeam(Team team){
         this.team = team;
