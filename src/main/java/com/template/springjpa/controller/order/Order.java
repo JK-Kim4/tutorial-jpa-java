@@ -1,5 +1,6 @@
 package com.template.springjpa.controller.order;
 
+import com.template.springjpa.controller.delivery.Delivery;
 import com.template.springjpa.controller.member.Member;
 import com.template.springjpa.controller.orderItem.OrderItem;
 import lombok.Getter;
@@ -28,11 +29,14 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name="MEMBER_ID")
-    private Member member;      // 주문 회원
+    private Member member;      // 주문 회원 (다:1)
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order")  // 주문 상품 (1:다)
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery; // 배송 정보 (1:1)
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate; // 주문 시간
@@ -53,5 +57,10 @@ public class Order {
     public void addOrderItem(OrderItem orderItem){
         orderItems.add(orderItem);
         orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery){
+        this.delivery = delivery;
+        delivery.setOrder(this);
     }
 }
