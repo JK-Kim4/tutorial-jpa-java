@@ -20,8 +20,12 @@
       - @Id
       - @Column
     - @Table
+  
 
 - JPA 구현체
   - EntityManagerFactory emf = Persistence.createEntityManagerFactory("emfName");
   - EntityManager em = emf.createEntityManager();
   - EntityTransaction et = em.getTransaction();
+  
+
+- JPQL
