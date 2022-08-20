@@ -16,10 +16,22 @@
 ---
   
 - @Annotation( javax.persistence 라이브러리에서 제공하는 JPA 관련 어노테이션 정리)
-    - @Entity
+  - 매핑 정보를 등록하는 방식은 xml과 annotation 방식이 있으며 annotation 방식이 일반적으로 사용된다. 
+      - @Entity(필수) : 테이블과 매핑할 클래스를 지정하며, @Entity가 붙은 클래스는 JPA 에서 관리한다.
+        - 속성
+          - name : JPA 에서 사용할 엔티티 이름 설정
+        - 특징
+          - 기본 생성자는 필수
+          - final 클래스, enum, interface, inner 클래스에는 사용할 수 없다.
+          - 저장할 필드에 final 사용하면 안됨
       - @Id
       - @Column
-    - @Table
+      - @Table : Entity와 매핑할 테이블을 지정. 생략이 가능하며 생략시 엔티티의 이름을 테이블명으로 사용한다.
+        - 속성
+          - name : 매핑할 테이블의 이름
+          - catalog : catalog 기능이 있는 데이터베이스에서 catalog를 맵핑
+          - schema : schema 기능이 있는 데이터베이스에서 schema를 맵핑
+          - uniqueConstraints : DDL 생성 시 유니크 제약 조건을 추가로 생성 (2개 이상 복합 유니크 제약조건 생성 가능~~)
   
 
 - JPA 구현체
