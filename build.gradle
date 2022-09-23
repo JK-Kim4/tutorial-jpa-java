@@ -33,11 +33,11 @@ dependencies {
 
     //database
     runtimeOnly 'com.h2database:h2'
-    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+    //implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     //EhCache
-    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    //implementation 'org.springframework.boot:spring-boot-starter-cache'
 
     //mustache
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
