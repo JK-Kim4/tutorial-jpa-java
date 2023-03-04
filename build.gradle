@@ -33,8 +33,9 @@ dependencies {
 
     //database
     runtimeOnly 'com.h2database:h2'
+    implementation 'org.hibernate:hibernate-entitymanager:5.3.10.Final'
     //implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     //EhCache
     //implementation 'org.springframework.boot:spring-boot-starter-cache'
