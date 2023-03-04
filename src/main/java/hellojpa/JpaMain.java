@@ -47,8 +47,7 @@ public class JpaMain {
             tx.rollback();
         }finally {
             em.close();
-            emf.close();
         }
-
+        emf.close();
     }
 }
