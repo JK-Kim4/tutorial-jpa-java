@@ -35,12 +35,37 @@ public class JpaMain {
             member.setName("updatename");*/
 
             //5. JPQL
-            List<Member> members =  em.createQuery("select m from Member as m", Member.class)
+            /*List<Member> members =  em.createQuery("select m from Member as m", Member.class)
                     .setFirstResult(1)
                     .setMaxResults(10)
                     .getResultList();
 
-            members.stream().forEach(System.out::println);
+            members.stream().forEach(System.out::println);*/
+
+            //6. persistence
+            /*Member member = new Member();
+            member.setId(100L);
+            member.setName("persistenceMember");
+
+            em.persist(member);
+
+
+            Member findMember = em.find(Member.class, 100L);
+
+            System.out.println(findMember.getId());
+            System.out.println(findMember.getName());*/
+
+            //7. 1차 cache
+            /*Member findMember1 = em.find(Member.class, 100L);
+            Member findMember2 = em.find(Member.class, 100L);
+
+            System.out.println("== result = " + (findMember1 == findMember2));*/
+
+            //8. 수정
+            Member member = em.find(Member.class, 100L);
+            System.out.println(member.getName());
+
+            member.setName("updateName");
 
             tx.commit();
         }catch (Exception e){
