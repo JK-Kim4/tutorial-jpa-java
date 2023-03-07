@@ -62,10 +62,10 @@ public class JpaMain {
             System.out.println("== result = " + (findMember1 == findMember2));*/
 
             //8. 수정
-            Member member = em.find(Member.class, 100L);
+            /*Member member = em.find(Member.class, 100L);
             System.out.println(member.getName());
 
-            member.setName("updateName");
+            member.setName("updateName");*/
 
             tx.commit();
         }catch (Exception e){

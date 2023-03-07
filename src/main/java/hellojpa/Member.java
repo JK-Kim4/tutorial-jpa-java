@@ -1,29 +1,30 @@
 package hellojpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity(name = "Member") // Default: Class Name
-@Table(name="MBR") // 맵핑 될 database 테이블 이름 별도 설정
+@Table // 맵핑 될 database 테이블 이름 별도 설정
 public class Member {
     @Id
     private Long id;
-    private String name;
+    @Column(name = "name")
+    private String username;
+    private Integer age;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
 
-    public Long getId() {
-        return id;
-    }
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
 
-    public String getName() {
-        return name;
+    @Lob
+    private String description;
+
+    public Member(){
+
     }
 }
