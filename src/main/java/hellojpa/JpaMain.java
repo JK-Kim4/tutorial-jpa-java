@@ -1,3 +1,4 @@
+/*
 package hellojpa;
 
 import javax.persistence.EntityManager;
@@ -16,34 +17,45 @@ public class JpaMain {
 
         try{
             //1.insert
-            /*Member member = new Member();
+            */
+/*Member member = new Member();
             member.setId(1L);
             member.setName("HelloA");
-            em.persist(member);*/
+            em.persist(member);*//*
+
 
             //2. select
-            /*Member member = em.find(Member.class, 1L);
+            */
+/*Member member = em.find(Member.class, 1L);
             System.out.println(member.getId());
-            System.out.println(member.getName());*/
+            System.out.println(member.getName());*//*
+
 
             //3. remove
-            /*Member member = em.find(Member.class, 1L);
-            em.remove(member);*/
+            */
+/*Member member = em.find(Member.class, 1L);
+            em.remove(member);*//*
+
 
             //4. update
-            /*Member member = em.find(Member.class, 1L);
-            member.setName("updatename");*/
+            */
+/*Member member = em.find(Member.class, 1L);
+            member.setName("updatename");*//*
+
 
             //5. JPQL
-            /*List<Member> members =  em.createQuery("select m from Member as m", Member.class)
+            */
+/*List<Member> members =  em.createQuery("select m from Member as m", Member.class)
                     .setFirstResult(1)
                     .setMaxResults(10)
                     .getResultList();
 
-            members.stream().forEach(System.out::println);*/
+            members.stream().forEach(System.out::println);*//*
+
 
             //6. persistence
-            /*Member member = new Member();
+            */
+/*Member member = new Member();
             member.setId(100L);
             member.setName("persistenceMember");
 
@@ -53,19 +65,24 @@ public class JpaMain {
             Member findMember = em.find(Member.class, 100L);
 
             System.out.println(findMember.getId());
-            System.out.println(findMember.getName());*/
+            System.out.println(findMember.getName());*//*
+
 
             //7. 1차 cache
-            /*Member findMember1 = em.find(Member.class, 100L);
+            */
+/*Member findMember1 = em.find(Member.class, 100L);
             Member findMember2 = em.find(Member.class, 100L);
 
-            System.out.println("== result = " + (findMember1 == findMember2));*/
+            System.out.println("== result = " + (findMember1 == findMember2));*//*
+
 
             //8. 수정
-            /*Member member = em.find(Member.class, 100L);
+            */
+/*Member member = em.find(Member.class, 100L);
             System.out.println(member.getName());
 
-            member.setName("updateName");*/
+            member.setName("updateName");*//*
+
 
             tx.commit();
         }catch (Exception e){
@@ -76,3 +93,4 @@ public class JpaMain {
         emf.close();
     }
 }
+*/
