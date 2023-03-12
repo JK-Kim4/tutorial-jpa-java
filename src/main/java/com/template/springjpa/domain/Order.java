@@ -1,3 +1,4 @@
+/*
 package com.template.springjpa.domain;
 
 import javax.persistence.*;
@@ -48,3 +49,4 @@ public class Order {
         this.status = status;
     }
 }
+*/

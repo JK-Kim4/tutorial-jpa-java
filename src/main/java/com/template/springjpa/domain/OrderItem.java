@@ -1,3 +1,4 @@
+/*
 package com.template.springjpa.domain;
 
 import javax.persistence.Column;
@@ -58,3 +59,4 @@ public class OrderItem {
         this.count = count;
     }
 }
+*/
