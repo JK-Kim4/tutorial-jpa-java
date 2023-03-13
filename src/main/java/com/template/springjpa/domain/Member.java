@@ -36,7 +36,17 @@ public class Member {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void changeTeam(Team team) {
         this.team = team;
+        team.getMembers().add(this); //연관관계 편의 메소드 작성하여 사용
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", team=" + team +
+                '}';
     }
 }
