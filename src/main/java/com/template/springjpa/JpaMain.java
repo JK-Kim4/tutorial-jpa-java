@@ -27,11 +27,18 @@ public class JpaMain {
             member.setTeam(team);
             em.persist(member);
 
+            Member member2 = new Member();
+            member2.setName("MemberB");
+            member2.setTeam(team);
+            em.persist(member2);
+
 
             em.flush();
             em.clear();
 
             Member findMember = em.find(Member.class, member.getId());
+            Member findMember2 = em.find(Member.class, member2.getId());
+            findMember2.setTeam(null);
             List<Member> members = findMember.getTeam().getMembers();
 
             for(Member m : members){
