@@ -3,8 +3,11 @@
     <persistence-unit name="hello">
         <!--gradle build 시 class 병로 등록-->
         <class>com.template.springjpa.domain.Item</class>
-        <class>com.template.springjpa.domain.Team</class>
         <class>com.template.springjpa.domain.Member</class>
+        <class>com.template.springjpa.domain.Order</class>
+        <class>com.template.springjpa.domain.OrderItem</class>
+        <class>com.template.springjpa.domain.OrderStatus</class>
+        <class>com.template.springjpa.domain.Locker</class>
         <properties>
             <!--필수 속성-->
             <!--JPA Datasource 정보-->
