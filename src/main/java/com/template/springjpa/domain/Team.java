@@ -1,3 +1,4 @@
+/*
 package com.template.springjpa.domain;
 
 import javax.persistence.*;
@@ -49,3 +50,4 @@ public class Team {
                 '}';
     }
 }
+*/

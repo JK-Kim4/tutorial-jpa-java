@@ -1,6 +1,8 @@
 package com.template.springjpa.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Member {
@@ -12,9 +14,12 @@ public class Member {
     @Column(name = "MEMBER_NAME")
     private String name;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "member")
+    private List<Order> orderList = new ArrayList<>();
+
+    /*@ManyToOne
     @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    private Team team;*/
 
     public Long getId() {
         return id;
@@ -32,21 +37,4 @@ public class Member {
         this.name = name;
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this); //연관관계 편의 메소드 작성하여 사용
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", team=" + team +
-                '}';
-    }
 }
