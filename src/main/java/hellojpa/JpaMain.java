@@ -28,7 +28,8 @@ public class JpaMain {
 
             Member m = em.find(Member.class, member1.getId());
 
-            //find member = class hellojpa.Team$HibernateProxy$Zx1128IM
+            //LAZY Loading => class hellojpa.Team$HibernateProxy$Zx1128IM
+            //EAGER Loading => class hellojpa.Team
             System.out.println("find member = " + m.getTeam().getClass());
 
             System.out.println("=================================");
