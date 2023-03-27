@@ -46,7 +46,7 @@ public class JpaMain {
             m.getTeam().getName();
             System.out.println("find member = " + m.getTeam().getClass());*/
 
-            List<Member> members =  em.createQuery("select m from Member m", Member.class).getResultList();
+            List<Member> members =  em.createQuery("select m from Member m left join fetch m.team", Member.class).getResultList();
 
 
             tx.commit();
