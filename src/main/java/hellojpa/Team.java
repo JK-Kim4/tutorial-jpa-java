@@ -1,5 +1,4 @@
-/*
-package com.template.springjpa.domain;
+package hellojpa;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -50,4 +49,3 @@ public class Team {
                 '}';
     }
 }
-*/

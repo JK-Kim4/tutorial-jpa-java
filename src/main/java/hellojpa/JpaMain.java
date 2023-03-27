@@ -14,21 +14,27 @@ public class JpaMain {
         tx.begin();
 
         try{
+            Team team1 = new Team();
+            team1.setName("team1");
+            em.persist(team1);
 
-            Movie movie = new Movie();
-            movie.setActor("tester");
-            movie.setDirector("tester");
-            movie.setName("test");
-            movie.setPrice(12344);
-
-            em.persist(movie);
+            Member member1 = new Member();
+            member1.setUsername("tester");
+            member1.setTeam(team1);
+            em.persist(member1);
 
             em.flush();
             em.clear();
 
-            Movie findmovie = em.find(Movie.class, movie.getId());
+            Member m = em.find(Member.class, member1.getId());
 
-            System.out.println(findmovie == movie);
+            //find member = class hellojpa.Team$HibernateProxy$Zx1128IM
+            System.out.println("find member = " + m.getTeam().getClass());
+
+            System.out.println("=================================");
+            m.getTeam().getName();
+            System.out.println("find member = " + m.getTeam().getClass());
+
 
             tx.commit();
         }catch (Exception e){
