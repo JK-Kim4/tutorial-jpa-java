@@ -15,7 +15,7 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Team team1 = new Team();
+            /*Team team1 = new Team();
             team1.setName("team1");
             em.persist(team1);
 
@@ -34,7 +34,7 @@ public class JpaMain {
             em.persist(member2);
 
             em.flush();
-            em.clear();
+            em.clear();*/
 
             /*Member m = em.find(Member.class, member1.getId());*/
 
@@ -46,7 +46,23 @@ public class JpaMain {
             m.getTeam().getName();
             System.out.println("find member = " + m.getTeam().getClass());*/
 
-            List<Member> members =  em.createQuery("select m from Member m left join fetch m.team", Member.class).getResultList();
+            Child child1 = new Child();
+            Child child2 = new Child();
+
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            /*
+            Cascade 설정 안했을 경우
+            em.persist(child1);
+            em.persist(child2);
+            em.persist(parent);*/
+
+            /*
+            * Cascade  설정
+            * em.persist(parent);
+            * */
 
 
             tx.commit();
