@@ -4,6 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -14,54 +18,23 @@ public class JpaMain {
         tx.begin();
 
         try{
-            /*Team team1 = new Team();
-            team1.setName("team1");
-            em.persist(team1);
+            //JPQL
+           /*List<Member> members =  em.createQuery(
+                                       "select m " +
+                                               "from Member m " +
+                                               "where m.username " +
+                                               "like '%kim%'",
+                                       Member.class
+                               ).getResultList();*/
 
-            Team team2 = new Team();
-            team2.setName("team2");
-            em.persist(team2);
+            //Criteria
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Member> query = cb.createQuery(Member.class);
 
-            Member member1 = new Member();
-            member1.setUsername("tester");
-            member1.setTeam(team1);
-            em.persist(member1);
+            Root<Member> m = query.from(Member.class);
+            CriteriaQuery<Member> cq = query.select(m).where(cb.equal(m.get("username"), "kim"));
 
-            Member member2 = new Member();
-            member2.setUsername("tester2");
-            member2.setTeam(team2);
-            em.persist(member2);
-
-            em.flush();
-            em.clear();*/
-
-            /*Member m = em.find(Member.class, member1.getId());*/
-
-            //LAZY Loading => class hellojpa.Team$HibernateProxy$Zx1128IM
-            //EAGER Loading => class hellojpa.Team
-            /*System.out.println("find member = " + m.getTeam().getClass());
-
-            System.out.println("=================================");
-            m.getTeam().getName();
-            System.out.println("find member = " + m.getTeam().getClass());*/
-
-            /*Child child1 = new Child();
-            Child child2 = new Child();
-
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);*/
-
-            /*
-            Cascade 설정 안했을 경우
-            em.persist(child1);
-            em.persist(child2);
-            em.persist(parent);*/
-
-            /*
-            * Cascade  설정
-            * em.persist(parent);
-            * */
+            List<Member> criResultList = em.createQuery(cq).getResultList();
 
 
             tx.commit();
