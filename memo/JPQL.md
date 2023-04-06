@@ -16,3 +16,11 @@
 -----
 - JPQL을 활용할 경우 동적 쿼리문 작성에 어려움이 있음
 - 동적 쿼리 생성을 도와주는 Java Lib Criteria
+
+
+## QueryDsl
+
+-----
+- JPAQueryFactory 객체 사용
+- SQL 예약어 형태로 작성 가능하여 유지 보수 용이
+- 오탈자에 대한 compile error로 runtime 시 발생하는 sql 오류 예방 가능
