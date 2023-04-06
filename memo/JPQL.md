@@ -24,3 +24,8 @@
 - JPAQueryFactory 객체 사용
 - SQL 예약어 형태로 작성 가능하여 유지 보수 용이
 - 오탈자에 대한 compile error로 runtime 시 발생하는 sql 오류 예방 가능
+
+
+
+
+### 위 기술 외 JPA 영속성 컨텍스트와 무관한 기술들과 함께 사용할 경우 (springJdbcTemplate, mybatis 등) 데이터베이스의 올바른 반영을 위하여 강제적인 flush 가 필요하다
