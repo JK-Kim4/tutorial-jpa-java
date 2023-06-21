@@ -1,20 +1,24 @@
 package com.template.springjpa.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter @Setter
 public class Delivery {
 
     @Id @GeneratedValue
-    @Column(name = "DELIVERY_ID")
+    @Column(name = "delevery_id")
     private Long id;
-
-    private String city;
-    private String street;
-    private String zipcode;
-    private DelivaryStatus delivaryStatus;
 
     @OneToOne(mappedBy = "delivery")
     private Order order;
 
+    @Embedded
+    private Address address;
+
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatue deliveryStatue;
 }

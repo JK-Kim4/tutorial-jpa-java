@@ -1,5 +1,6 @@
 package com.template.springjpa;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.persistence.EntityManager;
@@ -11,22 +12,7 @@ import javax.persistence.Persistence;
 public class Application {
 
     public static void main(String[] args) {
-        //SpringApplication.run(Application.class, args);
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-        EntityManager em = emf.createEntityManager();
-
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        try{
-            tx.commit();
-        }catch (Exception e){
-            tx.rollback();
-        }finally {
-            em.close();
-            emf.close();
-        }
+        SpringApplication.run(Application.class, args);
     }
 
 }

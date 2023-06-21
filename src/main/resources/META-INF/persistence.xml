@@ -2,7 +2,7 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="hello">
         <!--gradle build 시 class 병로 등록-->
-        <!--<class>com.template.springjpa.domain.Item</class>
+        <!--<class>com.template.springjpa.domain.item.Item</class>
         <class>com.template.springjpa.domain.Member</class>
         <class>com.template.springjpa.domain.Order</class>
         <class>com.template.springjpa.domain.OrderItem</class>
