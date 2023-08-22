@@ -1,5 +1,6 @@
 package com.template.springjpa.service;
 
+import com.template.springjpa.controller.OrderSearch;
 import com.template.springjpa.domain.Delivery;
 import com.template.springjpa.domain.Member;
 import com.template.springjpa.domain.Order;
@@ -11,6 +12,8 @@ import com.template.springjpa.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -59,4 +62,7 @@ public class OrderService {
     }
 
     //search
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAllByString(orderSearch);
+    }
 }
