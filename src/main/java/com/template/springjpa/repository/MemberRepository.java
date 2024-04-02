@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 @Repository //현재 클래스를 Component scan 하여 repository bean으로 등록
 @RequiredArgsConstructor
@@ -33,6 +34,16 @@ public class MemberRepository {
     public List<Member> findAll(){
         return  em.createQuery("select m from Member m", Member.class)
                     .getResultList();
+    }
+
+    public Optional<Member> findById(Long id){
+        Member member = em.find(Member.class, id);
+        return Optional.ofNullable(member);
+    }
+
+    public long count(){
+        return em.createQuery("select count(m) from Member m", Long.class)
+                .getSingleResult();
     }
 
     public List<Member> findByName(String name){
